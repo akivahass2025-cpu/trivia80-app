@@ -1,0 +1,397 @@
+<title>טריוויה שנות ה-80</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* Layout: one narrow column, like a phone held in the living room; the only loud thing is the broadcast test-card strip on top. */
+:root {
+  --bg: #f2f3fa;
+  --surface: #ffffff;
+  --surface-2: #e8eaf7;
+  --ink: #14183a;
+  --muted: #565c86;
+  --line: #d3d7ec;
+  --brand: #2a3fb5;
+  --on-brand: #ffffff;
+  --accent: #2a3fb5;
+  --good: #14693f;
+  --good-bg: #dff3e8;
+  --bad: #b3261e;
+  --bad-bg: #fbe3e0;
+  --b1: #e9ebf5;
+  --b2: #f2c21b;
+  --b3: #1fb5c9;
+  --b4: #2fa84f;
+  --b5: #c23fa8;
+  --b6: #d93a2f;
+  --b7: #2a3fb5;
+  --f-display: 'Secular One', 'Arial Hebrew', Arial, sans-serif;
+  --f-body: 'Assistant', 'Arial Hebrew', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1030; --surface: #161b44; --surface-2: #1e2456; --ink: #eef0ff; --muted: #a5abd8; --line: #2c3374;
+    --brand: #f3c64a; --on-brand: #14183a; --accent: #f3c64a;
+    --good: #6fdca6; --good-bg: #123a2c; --bad: #ff9a92; --bad-bg: #44201f;
+    --b1: #eef0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1030; --surface: #161b44; --surface-2: #1e2456; --ink: #eef0ff; --muted: #a5abd8; --line: #2c3374;
+  --brand: #f3c64a; --on-brand: #14183a; --accent: #f3c64a;
+  --good: #6fdca6; --good-bg: #123a2c; --bad: #ff9a92; --bad-bg: #44201f;
+  --b1: #eef0ff;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.5; }
+* { box-sizing: border-box; }
+#app { max-width: 640px; margin-inline: auto; padding-inline: 16px; padding-block: 0 40px; min-height: 100vh; }
+.strip { height: 12px; margin-inline: -16px; background: linear-gradient(to left, var(--b1) 0 14.28%, var(--b2) 0 28.56%, var(--b3) 0 42.84%, var(--b4) 0 57.12%, var(--b5) 0 71.4%, var(--b6) 0 85.68%, var(--b7) 0); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; margin: 0; text-wrap: balance; line-height: 1.2; }
+p { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+.eyebrow { font-size: 0.85rem; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; }
+.hero { display: grid; gap: 8px; padding-block: 28px 20px; }
+.hero h1 { font-size: clamp(2.2rem, 9vw, 3.1rem); }
+.hero p { color: var(--muted); max-width: 46ch; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.stack { display: grid; gap: 14px; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.stat { display: grid; gap: 2px; }
+.stat b { font-family: var(--f-display); font-weight: 400; font-size: 1.7rem; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.stat span { font-size: 0.82rem; color: var(--muted); }
+.bar { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0; background: var(--brand); border-radius: 99px; }
+.stages { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.stage-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: baseline; }
+.stage-row .bar { grid-column: 1 / -1; height: 6px; }
+.stage-row strong { font-weight: 600; }
+.stage-row small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.stage-row.is-now strong::after { content: ' · כאן אתה'; color: var(--muted); font-weight: 400; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 22px; border-radius: 12px; border: 2px solid var(--brand); background: var(--brand); color: var(--on-brand); font-weight: 700; font-size: 1.05rem; width: 100%; }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); font-weight: 600; }
+.btn.danger { background: var(--bad); border-color: var(--bad); color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.danger { color: #2a0d0b; } }
+:root[data-theme="dark"] .btn.danger { color: #2a0d0b; }
+.btn-row { display: grid; gap: 10px; }
+.btn-row.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.note { font-size: 0.86rem; color: var(--muted); }
+.confirm { border-color: var(--bad); display: grid; gap: 12px; }
+.confirm p { font-weight: 600; }
+
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding-block: 14px 10px; }
+.back { background: none; border: 0; padding: 8px 0; color: var(--muted); font-weight: 600; min-height: 44px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 99px; background: var(--surface-2); font-size: 0.88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.chip.stage { background: var(--brand); color: var(--on-brand); }
+.meta { display: flex; justify-content: space-between; gap: 12px; margin-block: 8px 6px; font-size: 0.9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.q { font-family: var(--f-display); font-size: clamp(1.3rem, 5.4vw, 1.7rem); line-height: 1.35; margin-block: 22px 18px; text-wrap: pretty; }
+.opts { display: grid; gap: 10px; }
+.opt { display: grid; grid-template-columns: 34px minmax(0, 1fr) 22px; align-items: center; gap: 10px; min-height: 56px; padding: 10px 14px; text-align: start; background: var(--surface); border: 2px solid var(--line); border-radius: 12px; font-weight: 600; }
+.opt .k { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); font-size: 0.9rem; font-weight: 700; }
+.opt .t { min-width: 0; overflow-wrap: anywhere; }
+.opt .m { font-weight: 700; text-align: center; }
+@media (hover: hover) { .opt:not([aria-disabled="true"]):hover { border-color: var(--brand); } }
+.opt[aria-disabled="true"] { cursor: default; }
+.opt.is-correct { border-color: var(--good); background: var(--good-bg); }
+.opt.is-correct .k { background: var(--good); color: var(--bg); }
+.opt.is-wrong { border-color: var(--bad); background: var(--bad-bg); }
+.opt.is-wrong .k { background: var(--bad); color: var(--bg); }
+.opt.is-dim { opacity: 0.55; }
+.feedback { margin-top: 16px; display: grid; gap: 10px; animation: rise 0.25s ease-out; }
+.feedback .verdict { font-family: var(--f-display); font-size: 1.3rem; }
+.feedback .verdict.ok { color: var(--good); }
+.feedback .verdict.no { color: var(--bad); }
+.feedback .src { font-size: 0.84rem; color: var(--muted); }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .feedback { animation: none; } }
+
+.center { text-align: center; justify-items: center; }
+.big { font-family: var(--f-display); font-size: clamp(3rem, 16vw, 4.6rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.table th, .table td { text-align: start; padding: 8px 4px; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.table th { color: var(--muted); font-weight: 600; font-size: 0.82rem; }
+.wrap { overflow-x: auto; }
+</style>
+<div id="app" dir="rtl" lang="he"></div>
+<script>
+const Q = __QUESTIONS__;
+const STAGE_NAMES = ['', 'מתחילים', 'צופים קבועים', 'מעריצים', 'מומחים', 'גאוני הסדרה'];
+const LETTERS = ['א', 'ב', 'ג', 'ד'];
+const KEY = 'tn80-progress-v2';
+const TOTAL = Q.length;
+const IDX = {};
+Q.forEach((q, i) => { IDX[q.id] = i; });
+
+const fresh = () => ({ v: 1, a: {}, cur: 0, best: 0, t: 0 });
+let P = fresh();
+let ui = { view: 'home', picked: null, opts: null, confirm: false, save: 'local', canLocal: true };
+let dbRef = null, dirty = false, writing = false, timer = null;
+
+const $app = document.getElementById('app');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const count = p => Object.keys(p.a).length;
+
+/* ---------------------------------------------------------------- persistence */
+function normalize(p) {
+  const out = fresh();
+  if (!p || typeof p !== 'object' || typeof p.a !== 'object' || p.a === null) return out;
+  Object.keys(p.a).forEach(id => { if (id in IDX) out.a[id] = p.a[id] ? 1 : 0; });
+  out.cur = Number(p.cur) || 0; out.best = Number(p.best) || 0; out.t = Number(p.t) || 0;
+  return out;
+}
+function localLoad() {
+  try { const raw = localStorage.getItem(KEY); if (raw) P = normalize(JSON.parse(raw)); } catch (e) { ui.canLocal = false; }
+}
+function localSave() {
+  try { localStorage.setItem(KEY, JSON.stringify(P)); } catch (e) { ui.canLocal = false; }
+}
+function save(now) {
+  localSave();
+  if (!dbRef) return;
+  dirty = true;
+  clearTimeout(timer);
+  timer = setTimeout(flush, now ? 0 : 700);
+}
+async function flush() {
+  if (!dbRef || writing || !dirty) return;
+  writing = true; dirty = false;
+  try {
+    await dbRef.set({ v: 1, a: P.a, cur: P.cur, best: P.best, t: P.t });
+  } catch (e) {
+    ui.save = 'local'; dbRef = null; dirty = false;
+    if (ui.view === 'home') render();
+  }
+  writing = false;
+  if (dirty) flush();
+}
+async function connectCloud() {
+  try {
+    const c = window.claude;
+    if (!c || !c.use) return;
+    const [db, user] = await Promise.all([c.use('db'), c.use('user')]);
+    if (!db || !user) return;
+    const id = await user.id();
+    if (!id) return;
+    const ref = db.doc('data/users/' + id + '/progress2');
+    const snap = await ref.get();
+    const remote = snap.exists ? normalize(snap.data()) : null;
+    dbRef = ref; ui.save = 'cloud';
+    if (remote && (remote.t > P.t || (remote.t === P.t && count(remote) > count(P)))) {
+      P = remote; localSave();
+    } else if (count(P) > 0 || P.t > 0) {
+      dirty = true; flush();
+    }
+    render();
+  } catch (e) { /* stay on local storage */ }
+}
+
+/* ---------------------------------------------------------------- derived state */
+const pos = () => Q.findIndex(q => !(q.id in P.a));
+const score = () => Object.keys(P.a).reduce((n, id) => n + P.a[id], 0);
+function stageStats(d) {
+  let total = 0, done = 0, ok = 0;
+  Q.forEach(q => { if (q.d === d) { total++; if (q.id in P.a) { done++; ok += P.a[q.id]; } } });
+  return { total, done, ok };
+}
+function shuffled(n) {
+  const a = Array.from({ length: n }, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+
+/* ---------------------------------------------------------------- views */
+function homeView() {
+  const answered = count(P), p = pos(), pct = answered ? Math.round(100 * score() / answered) : 0;
+  const nowStage = p >= 0 ? Q[p].d : 0;
+  const rows = [1, 2, 3, 4, 5].map(d => {
+    const s = stageStats(d);
+    return `<li class="stage-row${d === nowStage ? ' is-now' : ''}">
+      <strong>שלב ${d} · ${STAGE_NAMES[d]}</strong><small>${s.done} מתוך ${s.total}</small>
+      <div class="bar" role="img" aria-label="${s.done} מתוך ${s.total}"><i style="width:${s.total ? 100 * s.done / s.total : 0}%"></i></div></li>`;
+  }).join('');
+  const cta = answered === 0 ? 'התחל לשחק' : (p < 0 ? 'לסיכום' : `המשך לשאלה ${p + 1}`);
+  const saveNote = ui.save === 'cloud'
+    ? 'ההתקדמות נשמרת בחשבון שלך, ותחכה לך גם במכשיר אחר.'
+    : (ui.canLocal ? 'ההתקדמות נשמרת בדפדפן הזה. במכשיר אחר תתחיל מההתחלה.' : 'אי אפשר לשמור התקדמות בדפדפן הזה, ולכן היא תיעלם ברענון.');
+  const confirm = ui.confirm ? `
+    <div class="card confirm" role="alertdialog" aria-labelledby="cf">
+      <p id="cf">לאפס את המשחק? כל התשובות והניקוד יימחקו, ותתחיל שוב משאלה 1.</p>
+      <div class="btn-row two"><button class="btn danger" data-act="reset-yes">כן, אפס הכול</button><button class="btn ghost" data-act="reset-no">ביטול</button></div>
+    </div>` : '';
+  return `
+    <div class="strip" aria-hidden="true"></div>
+    <header class="hero">
+      <span class="eyebrow">הסדרה של שלום ומני אסייג</span>
+      <h1>טריוויה שנות ה-80</h1>
+      <p>${TOTAL} שאלות על הדמויות ועל מה שקורה בסדרה, בחמישה שלבים מהקל אל הקשה. אפשר לעצור באמצע ולחזור מאותה שאלה.</p>
+    </header>
+    <div class="stack">
+      <section class="card stack" aria-label="ההתקדמות שלך">
+        <div class="stats">
+          <div class="stat"><b>${answered}/${TOTAL}</b><span>שאלות שנענו</span></div>
+          <div class="stat"><b>${answered ? pct + '%' : '–'}</b><span>דיוק</span></div>
+          <div class="stat"><b>${P.best}</b><span>רצף שיא</span></div>
+        </div>
+        <ol class="stages">${rows}</ol>
+      </section>
+      <div class="btn-row">
+        <button class="btn" data-act="go">${cta}</button>
+        ${answered > 0 && !ui.confirm ? '<button class="btn ghost" data-act="reset-ask">איפוס המשחק</button>' : ''}
+      </div>
+      ${confirm}
+      <p class="note">${saveNote}</p>
+      <p class="note">השאלות מבוססות על תיאורי הפרקים וקטעי הווידאו הרשמיים באתר רשת 13, על תקצירים ב-TheTVDB וב-EDB, על תקצירי "שנות ה-90" ב-TheTVDB, על ביקורות הסרטים "ההילולה" ו"ההילולה 2", על ויקיפדיה, ויקיציטוט, ויקי המעריצים ועל כתבות בעיתונות. הן מתארות אירועים מרכזיים בפרקים ולא סצנות לפרטי פרטים.</p>
+    </div>`;
+}
+
+function topbar(q, p) {
+  return `
+    <div class="strip" aria-hidden="true"></div>
+    <div class="topbar">
+      <button class="back" data-act="home">‹ ראשי</button>
+      <div class="chips">
+        <span class="chip stage">שלב ${q.d} · ${STAGE_NAMES[q.d]}</span>
+        <span class="chip">${esc(q.c)}</span>
+        <span class="chip" title="תשובות נכונות">✓ ${score()}</span>
+        <span class="chip" title="רצף נוכחי">רצף ${P.cur}</span>
+      </div>
+    </div>
+    <div class="bar" role="img" aria-label="התקדמות כללית"><i style="width:${100 * count(P) / TOTAL}%"></i></div>
+    <div class="meta"><span>שאלה ${p + 1} מתוך ${TOTAL}</span></div>`;
+}
+
+function quizView() {
+  const p = pos();
+  if (p < 0 && ui.picked === null) { ui.view = 'done'; return doneView(); }
+  const idx = ui.picked !== null ? ui.last : p;
+  const q = Q[idx];
+  if (!ui.opts) ui.opts = shuffled(4);
+  const answered = ui.picked !== null;
+  const opts = ui.opts.map((oi, k) => {
+    const isRight = oi === 0, isPick = answered && ui.picked === oi;
+    let cls = 'opt', mark = '';
+    if (answered) {
+      if (isRight) { cls += ' is-correct'; mark = '✓'; }
+      else if (isPick) { cls += ' is-wrong'; mark = '✗'; }
+      else cls += ' is-dim';
+    }
+    return `<button class="${cls}" data-act="pick" data-i="${oi}" ${answered ? 'aria-disabled="true"' : ''}>
+      <span class="k">${LETTERS[k]}</span><span class="t">${esc(q.o[oi])}</span><span class="m" aria-hidden="true">${mark}</span></button>`;
+  }).join('');
+  let fb = '';
+  if (answered) {
+    const ok = ui.picked === 0;
+    const last = count(P) >= TOTAL;
+    fb = `<div class="feedback" role="status">
+      <div class="verdict ${ok ? 'ok' : 'no'}">${ok ? 'נכון!' : 'לא נכון. התשובה הנכונה: ' + esc(q.o[0])}</div>
+      <p>${esc(q.e)}</p>
+      <p class="src">מקור: ${esc(q.s)}</p>
+      <div class="btn-row"><button class="btn" id="next" data-act="next">${last ? 'לסיכום' : 'לשאלה הבאה'}</button></div></div>`;
+  }
+  return `${topbar(q, idx)}<h2 class="q">${esc(q.q)}</h2><div class="opts">${opts}</div>${fb}`;
+}
+
+function stageView() {
+  const p = pos(), d = Q[p].d, s = stageStats(d);
+  const prev = d - 1, ps = stageStats(prev);
+  return `
+    <div class="strip" aria-hidden="true"></div>
+    <div class="hero center stack">
+      <span class="eyebrow">סיימת את שלב ${prev}: ${ps.ok} נכונות מתוך ${ps.total}</span>
+      <h1>שלב ${d} · ${STAGE_NAMES[d]}</h1>
+      <p>${s.total} שאלות. מכאן זה נהיה קשה יותר.</p>
+      <button class="btn" data-act="go">יאללה, ממשיכים</button>
+    </div>`;
+}
+
+function doneView() {
+  const answered = count(P), pct = Math.round(100 * score() / Math.max(1, answered));
+  const rows = [1, 2, 3, 4, 5].map(d => {
+    const s = stageStats(d);
+    return `<tr><td>שלב ${d} · ${STAGE_NAMES[d]}</td><td>${s.ok} מתוך ${s.total}</td><td>${s.total ? Math.round(100 * s.ok / s.total) : 0}%</td></tr>`;
+  }).join('');
+  return `
+    <div class="strip" aria-hidden="true"></div>
+    <div class="hero center stack">
+      <span class="eyebrow">סיימת את כל ${TOTAL} השאלות</span>
+      <div class="big">${score()}</div>
+      <p>תשובות נכונות מתוך ${answered} (${pct}%). רצף השיא שלך: ${P.best}.</p>
+    </div>
+    <div class="stack">
+      <section class="card wrap"><table class="table"><thead><tr><th>שלב</th><th>נכון</th><th>דיוק</th></tr></thead><tbody>${rows}</tbody></table></section>
+      <div class="btn-row">
+        <button class="btn" data-act="reset-yes">להתחיל מההתחלה</button>
+        <button class="btn ghost" data-act="home">למסך הראשי</button>
+      </div>
+    </div>`;
+}
+
+function render() {
+  let html;
+  if (ui.view === 'home') html = homeView();
+  else if (ui.view === 'stage') html = stageView();
+  else if (ui.view === 'done') html = doneView();
+  else html = quizView();
+  $app.innerHTML = html;
+  const nx = document.getElementById('next');
+  if (nx) { nx.focus({ preventScroll: true }); nx.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+}
+
+/* ---------------------------------------------------------------- actions */
+function pick(oi) {
+  if (ui.picked !== null) return;
+  const p = pos();
+  if (p < 0) return;
+  const q = Q[p], ok = oi === 0;
+  P.a[q.id] = ok ? 1 : 0;
+  P.cur = ok ? P.cur + 1 : 0;
+  P.best = Math.max(P.best, P.cur);
+  P.t = Date.now();
+  ui.picked = oi; ui.last = p;
+  save();
+  render();
+}
+function next() {
+  const prevLevel = Q[ui.last].d;
+  ui.picked = null; ui.opts = null;
+  const p = pos();
+  if (p < 0) ui.view = 'done';
+  else ui.view = Q[p].d !== prevLevel ? 'stage' : 'quiz';
+  render();
+  window.scrollTo(0, 0);
+}
+function resetAll() {
+  P = fresh(); P.t = Date.now();
+  ui = Object.assign(ui, { view: 'home', picked: null, opts: null, confirm: false });
+  save(true);
+  render();
+  window.scrollTo(0, 0);
+}
+
+$app.addEventListener('click', ev => {
+  const el = ev.target.closest('[data-act]');
+  if (!el) return;
+  const act = el.dataset.act;
+  if (act === 'go') { ui.view = pos() < 0 ? 'done' : 'quiz'; ui.picked = null; ui.opts = null; render(); window.scrollTo(0, 0); }
+  else if (act === 'home') { ui.view = 'home'; ui.confirm = false; if (ui.picked !== null) { ui.picked = null; ui.opts = null; } render(); window.scrollTo(0, 0); }
+  else if (act === 'pick') pick(Number(el.dataset.i));
+  else if (act === 'next') next();
+  else if (act === 'reset-ask') { ui.confirm = true; render(); }
+  else if (act === 'reset-no') { ui.confirm = false; render(); }
+  else if (act === 'reset-yes') resetAll();
+});
+document.addEventListener('keydown', ev => {
+  if (ui.view !== 'quiz' || ui.picked !== null || ev.ctrlKey || ev.metaKey || ev.altKey) return;
+  if (!/^[1-4]$/.test(ev.key) || !ui.opts) return;
+  pick(ui.opts[Number(ev.key) - 1]);
+});
+
+localLoad();
+render();
+connectCloud();
+</script>
